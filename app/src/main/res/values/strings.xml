@@ -1,0 +1,39 @@
+<resources>
+    <string name="app_name">Bd Result</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="action_apps">More Apps</string>
+    <string name="action_ratings">Give 5 Star Please</string>
+    <string name="home">Home</string>
+
+    <!--<string name="home">First page</string>-->
+    <string name="govtResult">বাংলাদেশ সরকারী পরীক্ষাসমূহের নোটিশ ও ফলাফল</string>
+    <string name="bcsResult">বিসিএস পরীক্ষা</string>
+    <string name="nonCaderResult">নন-ক্যাডার পরীক্ষা</string>
+    <string name="devisionResult">বিভাগীয় পরীক্ষা</string>
+    <string name="seniorResult">সিনিয়র স্কেল পরীক্ষা</string>
+    <string name="nonCaderResultSystem">নন-ক্যাডার পরীক্ষা পদ্ধতি</string>
+
+
+    <!--<string name="">Govt job result page</string>-->
+    <string name="primaryResult">Primary Result</string>
+    <string name="sscResult">JSC/SSC/HSC</string>
+    <string name="nuResult">National University</string>
+    <string name="publicUVResult">Public University</string>
+    <string name="govtResultMain">Govt Job Result</string>
+    <string name="textTitle">বাংলাদেশ পরীক্ষাসমূহের নোটিশ ও ফলাফল</string>
+
+
+
+    <!--<string name="">Govt job result page</string>-->
+    <string name="bcsExamSystem">বিসিএস পরীক্ষা পদ্ধতি</string>
+    <string name="noncaderExamSystem">নন-ক্যাডার পরীক্ষা পদ্ধতি </string>
+
+
+    <!--<string name="action_ratings">Admob key</string>-->
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
+</resources>
