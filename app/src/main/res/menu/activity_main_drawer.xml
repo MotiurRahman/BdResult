@@ -3,26 +3,76 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/bcsExamSystem"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/bcsExamSystem" />
-        <item
-            android:id="@+id/noncaderExamSystem"
-            android:icon="@drawable/ic_menu_camera"
-            android:title="@string/noncaderExamSystem" />
 
-    </group>
-
-    <item android:title="Communicate">
+    <item android:title="Result via SMS">
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_menu_share"
-                android:title="Share" />
+                android:id="@+id/sms_result"
+                android:icon="@mipmap/ic_school_black_24dp"
+                android:title="@string/sms_result" />
+            <item
+                android:id="@+id/review_result"
+                android:icon="@mipmap/ic_school_black_24dp"
+                android:title="@string/review_result" />
+
 
         </menu>
     </item>
+
+
+
+    <item android:title="Exam System">
+        <menu>
+        <item
+            android:id="@+id/bcsExamSystem"
+            android:icon="@mipmap/ic_note_black_24dp"
+            android:title="@string/bcsExamSystem" />
+        <item
+            android:id="@+id/noncaderExamSystem"
+            android:icon="@mipmap/ic_note_black_24dp"
+            android:title="@string/noncaderExamSystem" />
+
+        </menu>
+
+    </item>
+
+
+    <item android:title="Admission Result">
+        <menu>
+            <item
+                android:id="@+id/buet"
+                android:icon="@mipmap/ic_school_black_24dp"
+                android:title="@string/buet" />
+            <item
+                android:id="@+id/medical"
+                android:icon="@mipmap/ic_school_black_24dp"
+                android:title="@string/medical" />
+
+            <item
+                android:id="@+id/du"
+                android:icon="@mipmap/ic_school_black_24dp"
+                android:title="@string/du" />
+
+        </menu>
+    </item>
+
+
+
+    <item android:title="Admission">
+        <menu>
+            <item
+                android:id="@+id/nuAdmission"
+                android:icon="@mipmap/ic_school_black_24dp"
+                android:title="@string/nuAdmission" />
+            <item
+                android:id="@+id/all_uv_admission"
+                android:icon="@mipmap/ic_school_black_24dp"
+                android:title="@string/all_uv_admission" />
+
+
+
+        </menu>
+    </item>
+
 
 </menu>

@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@mipmap/backimg"
-    tools:context="motiur_bdresult.bd.com.bdresult.MainActivity">
+    tools:context="motiur_bdresult.bd.com.bdresult.govtResult">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -16,9 +16,8 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
             android:orientation="vertical"
-            android:gravity="center">
+            android:layout_marginTop="20sp">
 
 
             <TextView
@@ -29,6 +28,7 @@
                 android:gravity="center"
                 android:shadowDx="0"
                 android:shadowDy="0"
+                android:padding="5sp"
                 android:textColor="#ffffff"
                 android:shadowRadius="5"
                 android:background="@drawable/buttonshape"
@@ -53,7 +53,7 @@
 
                 android:text="@string/bcsResult"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp"/>
+                android:textSize="25sp"/>
 
             <Button
                 android:id="@+id/nonCaderResult"
@@ -71,7 +71,7 @@
                 android:shadowRadius="5"
                 android:text="@string/nonCaderResult"
                 android:textColor="#FFFFFF"
-                android:textSize="30sp" />
+                android:textSize="25sp" />
 
             <Button
                 android:id="@+id/devisionResult"
@@ -108,7 +108,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="25sp" />
 
-           
+
 
         </LinearLayout>
 

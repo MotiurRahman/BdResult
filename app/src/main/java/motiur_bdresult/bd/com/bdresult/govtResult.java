@@ -6,6 +6,8 @@ import android.graphics.drawable.ColorDrawable;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -15,9 +17,9 @@ import com.google.android.gms.ads.AdView;
 
 public class govtResult extends AppCompatActivity {
 
-    Button bcsResult, nonCaderResult, devisionResult, seniorScale,nonCaderExamSystem;
+    //Button bcsResult, nonCaderResult, devisionResult, seniorScale;
 
-    TextView textView;
+   // TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +36,14 @@ public class govtResult extends AppCompatActivity {
 
         //
 
-        bcsResult = (Button)findViewById(R.id.bcsResult);
-        nonCaderResult = (Button)findViewById(R.id.nonCaderResult);
-        devisionResult = (Button)findViewById(R.id.devisionResult);
-        seniorScale = (Button)findViewById(R.id.seniorScale);
-        nonCaderExamSystem = (Button)findViewById(R.id.nonCaderExamSystem);
-        textView = (TextView) findViewById(R.id.textView);
+//        bcsResult = (Button)findViewById(R.id.bcsResult);
+//        nonCaderResult = (Button)findViewById(R.id.nonCaderResult);
+//        devisionResult = (Button)findViewById(R.id.devisionResult);
+//        seniorScale = (Button)findViewById(R.id.seniorScale);
+       // textView = (TextView) findViewById(R.id.textView);
 
         // Load an ad into the AdMob banner view.
-        AdView adView = (AdView) findViewById(R.id.adView);
+        AdView adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
@@ -95,15 +96,34 @@ public class govtResult extends AppCompatActivity {
         overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
 
     }
-    public void nonCaderExamSystem(View view){
-        String webURL = "http://www.bpsc.gov.bd/site/page/71290977-b0b2-414c-a3e4-e3c65677b9a6/%E0%A6%A8%E0%A6%A8-%E0%A6%95%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%A1%E0%A6%BE%E0%A6%B0-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.govtresult, menu);
+
+        return true;
     }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
+
+        if (id == R.id.action_close) {
+            finish();
+
+            overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_right);
+            //  overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+        }
+
+
+        return super.onOptionsItemSelected(item);
+    }
+
 
 }

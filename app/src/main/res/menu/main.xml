@@ -5,9 +5,9 @@
 
     <item
         android:id="@+id/action_share"
-        android:title="@string/action_ratings"
         android:icon="@drawable/ic_menu_share"
-        app:showAsAction="always"
+        android:title="@string/share"
+        app:showAsAction="ifRoom"
         app:actionProviderClass="android.support.v7.widget.ShareActionProvider"/>
 
 

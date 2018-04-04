@@ -1,6 +1,7 @@
 package motiur_bdresult.bd.com.bdresult;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.ConnectivityManager;
@@ -26,6 +27,8 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
+import android.app.AlertDialog;
+
 
 import com.onesignal.OneSignal;
 
@@ -41,7 +44,7 @@ public class MainActivity extends AppCompatActivity
 
     private InterstitialAd mInterstitialAd;
 
-    Button primaryResult, seconderyResult, nuReslt, publicResult, govtResult;
+   // Button primaryResult1, primaryResult2,seconderyResult1,seconderyResult2, nuReslt,nuAdmission_result, publicResult, govtResult;
 
 //    private static final int PLUS_ONE_REQUEST_CODE = 0;
 //    private static final String URL = "https://play.google.com/store/apps/details?id=motiur_bdjobs.bd.com.allbdjobs";
@@ -53,11 +56,14 @@ public class MainActivity extends AppCompatActivity
         setContentView(R.layout.activity_main);
 
 
-        primaryResult = (Button) findViewById(R.id.primaryResult);
-        seconderyResult = (Button) findViewById(R.id.seconderyResult);
-        nuReslt = (Button) findViewById(R.id.nuReslt);
-        publicResult = (Button) findViewById(R.id.publicResult);
-        govtResult = (Button) findViewById(R.id.govtResult);
+//        primaryResult1 = (Button) findViewById(R.id.primaryResult1);
+//        primaryResult2 = (Button) findViewById(R.id.primaryResult2);
+//        seconderyResult1 = (Button) findViewById(R.id.seconderyResult1);
+//        seconderyResult2 = (Button) findViewById(R.id.seconderyResult2);
+//        nuAdmission_result = (Button) findViewById(R.id.nuAdmission_result);
+//        nuReslt = (Button) findViewById(R.id.nuReslt);
+//        publicResult = (Button) findViewById(R.id.publicResult);
+//        govtResult = (Button) findViewById(R.id.govtResult);
 
 
         // One Signal
@@ -68,8 +74,33 @@ public class MainActivity extends AppCompatActivity
                 .init();
 
 
+        //Floting action button
+
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+
+                if (isNetworkConnected()) {
+
+                    Intent i = new Intent(Intent.ACTION_VIEW);
+
+                    i.setData(Uri.parse("market://details?id=motiur_bdresult.bd.com.bdresult"));
+                    startActivity(i);
+                    overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+                } else {
+                    Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+        //Floting action button
+
+
         // Load an ad into the AdMob banner view.
-        AdView adView = (AdView) findViewById(R.id.adView);
+        AdView adView = findViewById(R.id.adView);
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
@@ -77,17 +108,17 @@ public class MainActivity extends AppCompatActivity
 
 
         //Toolbar
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        Toolbar toolbar =  findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
 
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        NavigationView navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
 
@@ -112,7 +143,7 @@ public class MainActivity extends AppCompatActivity
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -199,7 +230,7 @@ public class MainActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.bcsExamSystem) {
+        if (id == R.id.sms_result) {
 //            if (mInterstitialAd.isLoaded()) {
 //                mInterstitialAd.show();
 //            } else {
@@ -207,7 +238,7 @@ public class MainActivity extends AppCompatActivity
 //            }
             // Handle the camera action
 
-            String webURL = "http://www.bpsc.gov.bd/site/page/4bc95017-18d6-412b-8c4f-76d3e1599d8e/%E0%A6%AC%E0%A6%BF%E0%A6%B8%E0%A6%BF%E0%A6%8F%E0%A6%B8-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
+            String webURL = "file:///android_asset/smsSystem.html";
 
 
             //  bdresult.loadUrl(webURL);
@@ -216,7 +247,24 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra("URL", webURL);
             startActivity(intent);
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        } else if (id == R.id.nonCaderExamSystem) {
+        }else if (id == R.id.review_result) {
+//            if (mInterstitialAd.isLoaded()) {
+//                mInterstitialAd.show();
+//            } else {
+//                Log.d("TAG", "The interstitial wasn't loaded yet.");
+//            }
+            // Handle the camera action
+
+            String webURL = "file:///android_asset/reviewResult.html";
+
+
+            //  bdresult.loadUrl(webURL);
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        } else if (id == R.id.noncaderExamSystem) {
 //            if (mInterstitialAd.isLoaded()) {
 //                mInterstitialAd.show();
 //            } else {
@@ -233,19 +281,56 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra("URL", URL);
             startActivity(intent);
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        } else if (id == R.id.nav_share) {
-            Intent intent = new Intent();
-            intent.setAction(Intent.ACTION_SEND);
+        }else if (id == R.id.bcsExamSystem) {
+//            if (mInterstitialAd.isLoaded()) {
+//                mInterstitialAd.show();
+//            } else {
+//                Log.d("TAG", "The interstitial wasn't loaded yet.");
+//            }
+            // Handle the camera action
 
-            // change the type of data you need to share,
-            // for image use "image/*"
-            intent.setType("text/plain");
-            intent.putExtra(Intent.EXTRA_TEXT, "https://play.google.com/store/apps/details?id=motiur_bdresult.bd.com.bdresult");
-            startActivity(Intent.createChooser(intent, "Share"));
+            String URL = "http://www.bpsc.gov.bd/site/page/4bc95017-18d6-412b-8c4f-76d3e1599d8e/%E0%A6%AC%E0%A6%BF%E0%A6%B8%E0%A6%BF%E0%A6%8F%E0%A6%B8-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
 
+
+            // bdresult.loadUrl(URL);
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", URL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        } else if (id == R.id.buet) {
+            String URL = "http://www.buet.ac.bd/Home/Admission";
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", URL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        } else if (id == R.id.medical) {
+            String URL = "http://result.dghs.gov.bd/";
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", URL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        } else if (id == R.id.du) {
+            String URL = "http://admission.eis.du.ac.bd/";
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", URL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        }else if (id == R.id.nuAdmission) {
+            String URL = "http://app1.nu.edu.bd/";
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", URL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        }else if (id == R.id.all_uv_admission) {
+            String URL = "http://www.bangladesh.gov.bd/site/view/eservices/%E0%A6%AD%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%BF%E0%A6%B0%20%E0%A6%86%E0%A6%AC%E0%A7%87%E0%A6%A6%E0%A6%A8";
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", URL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         }
 
-        DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
@@ -255,7 +340,22 @@ public class MainActivity extends AppCompatActivity
 
     //Button Click
 
-    public void primaryResult(View view) {
+    public void primaryResult1(View view) {
+
+
+        String webURL = "http://180.211.137.51:5839/";
+
+        Intent intent = new Intent(this, BdResultActivity.class);
+        intent.putExtra("URL", webURL);
+        startActivity(intent);
+        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+
+    }
+
+
+    public void primaryResult2(View view) {
 
 
         String webURL = "http://dperesult.teletalk.com.bd/dpe.php";
@@ -269,7 +369,19 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    public void seconderyResult(View view) {
+
+    public void seconderyResult1(View view) {
+
+        String webURL = "http://eboardresults.com/app/";
+
+        Intent intent = new Intent(this, BdResultActivity.class);
+        intent.putExtra("URL", webURL);
+        startActivity(intent);
+        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+    }
+
+    public void seconderyResult2(View view) {
 
         String webURL = "http://www.educationboardresults.gov.bd/";
 
@@ -279,6 +391,7 @@ public class MainActivity extends AppCompatActivity
         // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
     }
+
 
 
     public void nuResult(View view) {
@@ -294,7 +407,39 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+
+    public void nuAdmissionResult(View view) {
+
+
+        String webURL = "http://app8.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Honours";
+
+        Intent intent = new Intent(this, BdResultActivity.class);
+        intent.putExtra("URL", webURL);
+        startActivity(intent);
+        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+    }
+
+
     public void publicResult(View view) {
+        // 1. Instantiate an AlertDialog.Builder with its constructor
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+
+        // 2. Chain together various setter methods to set the dialog characteristics
+        builder.setMessage("Comming Soon")
+                .setTitle("Admission Result");
+
+        builder.setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int id) {
+                dialog.dismiss();
+            }
+        });
+
+        // 3. Get the AlertDialog from create()
+        AlertDialog dialog = builder.create();
+
+        dialog.show();
 
     }
 

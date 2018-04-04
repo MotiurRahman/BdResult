@@ -3,6 +3,7 @@
     package="motiur_bdresult.bd.com.bdresult">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -27,7 +28,7 @@
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
 
-        <activity android:name=".govtResult"></activity>
+        <activity android:name=".govtResult" />
     </application>
 
 </manifest>

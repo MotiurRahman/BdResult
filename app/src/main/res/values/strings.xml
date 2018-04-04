@@ -8,9 +8,11 @@
     <string name="action_apps">More Apps</string>
     <string name="action_ratings">Give 5 Star Please</string>
     <string name="home">Home</string>
+    <string name="share">Share App</string>
 
     <!--<string name="home">First page</string>-->
-    <string name="govtResult">বাংলাদেশ সরকারী পরীক্ষাসমূহের নোটিশ ও ফলাফল</string>
+    <string name="result">বাংলাদেশের সকল পরীক্ষাসমূহের ফলাফল</string>
+    <string name="govtResult">বাংলাদেশের সরকারি চাকুরির পরীক্ষাসমূহের ফলাফল</string>
     <string name="bcsResult">বিসিএস পরীক্ষা</string>
     <string name="nonCaderResult">নন-ক্যাডার পরীক্ষা</string>
     <string name="devisionResult">বিভাগীয় পরীক্ষা</string>
@@ -19,18 +21,33 @@
 
 
     <!--<string name="">Govt job result page</string>-->
-    <string name="primaryResult">Primary Result</string>
-    <string name="sscResult">JSC/SSC/HSC</string>
-    <string name="nuResult">National University</string>
-    <string name="publicUVResult">Public University</string>
-    <string name="govtResultMain">Govt Job Result</string>
     <string name="textTitle">বাংলাদেশ পরীক্ষাসমূহের নোটিশ ও ফলাফল</string>
+    <string name="smsResult">প্রাইমারী রেজাল্ট মার্কসীট সহ</string>
+    <string name="primaryResult1">প্রাইমারী রেজাল্ট মার্কসীট সহ</string>
+    <string name="primaryResult2">প্রাইমারী রেজাল্ট (২)</string>
+    <string name="seconderyResult1">মাধ্যমিক ও  উচ্চমাধ্যমিক রেজাল্ট মার্কসীট সহ</string>
+    <string name="seconderyResult2">মাধ্যমিক ও  উচ্চমাধ্যমিক রেজাল্ট (২)</string>
+    <string name="nuResult">ডিগ্ৰী ও অনার্স রেজাল্ট</string>
+    <string name="govtResultMain">সরকারি চাকরির ফলাফল</string>
+    <string name="nuAdmissionResult">অনার্স ভর্তি পরীক্ষার ফলাফল</string>
+    <string name="admissionResult">Admission Result</string>
 
+
+    <string name="ok">OK</string>
 
 
     <!--<string name="">Govt job result page</string>-->
     <string name="bcsExamSystem">বিসিএস পরীক্ষা পদ্ধতি</string>
     <string name="noncaderExamSystem">নন-ক্যাডার পরীক্ষা পদ্ধতি </string>
+    <string name="sms_result">মেসেজ দিয়ে রেজাল্ট জানুন</string>
+    <string name="review_result">ফলাফল পুনঃ মূল্যায়ণ</string>
+
+    <!--<string name="admission">Admission Result</string>-->
+    <string name="buet">BUET Admission Result</string>
+    <string name="medical">Medical Admission Result</string>
+    <string name="du">DU Admission Result</string>
+    <string name="nuAdmission">National University Admission</string>
+    <string name="all_uv_admission">All University Admission</string>
 
 
     <!--<string name="action_ratings">Admob key</string>-->

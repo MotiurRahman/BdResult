@@ -4,7 +4,7 @@
 
 
     <item
-        android:id="@+id/action_home"
+        android:id="@+id/action_close"
         android:title="Home"
         android:icon="@mipmap/ic_close_white_24dp"
         app:showAsAction="always"/>
