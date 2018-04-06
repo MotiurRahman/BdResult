@@ -15,8 +15,8 @@ android {
         applicationId "motiur_bdresult.bd.com.bdresult"
         minSdkVersion 15
         targetSdkVersion 26
-        versionCode 1
-        versionName "1.0"
+        versionCode 2
+        versionName "1.1"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
         manifestPlaceholders = [onesignal_app_id               : "f17a4ba5-3a89-4c6b-8b59-3fa6db2b5512",
                                 // Project number pulled from dashboard, local value is ignored.
