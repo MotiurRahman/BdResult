@@ -1,8 +1,10 @@
 package motiur_bdresult.bd.com.bdresult;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.net.ConnectivityManager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
@@ -53,47 +56,78 @@ public class govtResult extends AppCompatActivity {
 
     }
 
+    //For internet connection
+
+    private boolean isNetworkConnected() {
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        return cm.getActiveNetworkInfo() != null;
+    }
+    //End internet connection
+
+
+
     public void bcs_Result(View view){
 
         String webURL = "http://www.bpsc.gov.bd/site/view/psc_exam/BCS%20Examination/%E0%A6%AC%E0%A6%BF%E0%A6%B8%E0%A6%BF%E0%A6%8F%E0%A6%B8-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+        if(isNetworkConnected()){
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        }else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
 
     }
     public void nonCaderResult(View view){
 
         String webURL = "http://www.bpsc.gov.bd/site/view/psc_exam/Non-Cadre%20Examination/%E0%A6%A8%E0%A6%A8-%E0%A6%95%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%A1%E0%A6%BE%E0%A6%B0-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+        if(isNetworkConnected()){
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        }else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
 
     }
     public void devisionResult(View view){
         String webURL = "http://www.bpsc.gov.bd/site/view/psc_exam/Departmental%20Examination/%E0%A6%AC%E0%A6%BF%E0%A6%AD%E0%A6%BE%E0%A6%97%E0%A7%80%E0%A7%9F-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+        if(isNetworkConnected()){
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        }else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
 
     }
 
     public void seniorScale(View view){
         String webURL = "http://www.bpsc.gov.bd/site/view/psc_exam/Senior%20Scale%20Examination/%E0%A6%B8%E0%A6%BF%E0%A6%A8%E0%A6%BF%E0%A7%9F%E0%A6%B0-%E0%A6%B8%E0%A7%8D%E0%A6%95%E0%A7%87%E0%A6%B2-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+        if(isNetworkConnected()){
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        }else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
 
     }
 

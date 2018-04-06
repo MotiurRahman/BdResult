@@ -30,6 +30,7 @@ import android.widget.Toast;
 import android.app.AlertDialog;
 
 
+import com.google.android.gms.ads.MobileAds;
 import com.onesignal.OneSignal;
 
 
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity
 
     private InterstitialAd mInterstitialAd;
 
-   // Button primaryResult1, primaryResult2,seconderyResult1,seconderyResult2, nuReslt,nuAdmission_result, publicResult, govtResult;
+    // Button primaryResult1, primaryResult2,seconderyResult1,seconderyResult2, nuReslt,nuAdmission_result, publicResult, govtResult;
 
 //    private static final int PLUS_ONE_REQUEST_CODE = 0;
 //    private static final String URL = "https://play.google.com/store/apps/details?id=motiur_bdjobs.bd.com.allbdjobs";
@@ -104,11 +105,11 @@ public class MainActivity extends AppCompatActivity
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
-        // MobileAds.initialize(this, "ca-app-pub-1090282204928094~4758004250");
+        MobileAds.initialize(this, "ca-app-pub-4951262838901192~5542320854");
 
 
         //Toolbar
-        Toolbar toolbar =  findViewById(R.id.toolbar);
+        Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
 
@@ -122,28 +123,27 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
 
 
-//
-//        // Interestitial Ad
-//        mInterstitialAd = new InterstitialAd(this);
-//        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
-//        mInterstitialAd.loadAd(new AdRequest.Builder().build());
-//
-//        mInterstitialAd.setAdListener(new AdListener() {
-//            @Override
-//            public void onAdClosed() {
-//                // Load the next interstitial.
-//                mInterstitialAd.loadAd(new AdRequest.Builder().build());
-//            }
-//
-//        });
-//
-//        //End Interestitial Ad
+        // Interestitial Ad
+        mInterstitialAd = new InterstitialAd(this);
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
+        mInterstitialAd.loadAd(new AdRequest.Builder().build());
+
+        mInterstitialAd.setAdListener(new AdListener() {
+            @Override
+            public void onAdClosed() {
+                // Load the next interstitial.
+                mInterstitialAd.loadAd(new AdRequest.Builder().build());
+            }
+
+        });
+
+        //End Interestitial Ad
     }
 
 
     @Override
     public void onBackPressed() {
-        DrawerLayout drawer =  findViewById(R.id.drawer_layout);
+        DrawerLayout drawer = findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
         } else {
@@ -247,7 +247,7 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra("URL", webURL);
             startActivity(intent);
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        }else if (id == R.id.review_result) {
+        } else if (id == R.id.review_result) {
 //            if (mInterstitialAd.isLoaded()) {
 //                mInterstitialAd.show();
 //            } else {
@@ -275,13 +275,19 @@ public class MainActivity extends AppCompatActivity
             String URL = "http://www.bpsc.gov.bd/site/page/71290977-b0b2-414c-a3e4-e3c65677b9a6/%E0%A6%A8%E0%A6%A8-%E0%A6%95%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%A1%E0%A6%BE%E0%A6%B0-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
 
 
-            // bdresult.loadUrl(URL);
+            if (isNetworkConnected()) {
 
-            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-            intent.putExtra("URL", URL);
-            startActivity(intent);
-            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        }else if (id == R.id.bcsExamSystem) {
+                Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+                intent.putExtra("URL", URL);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+            } else {
+                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            }
+
+
+        } else if (id == R.id.bcsExamSystem) {
 //            if (mInterstitialAd.isLoaded()) {
 //                mInterstitialAd.show();
 //            } else {
@@ -292,42 +298,76 @@ public class MainActivity extends AppCompatActivity
             String URL = "http://www.bpsc.gov.bd/site/page/4bc95017-18d6-412b-8c4f-76d3e1599d8e/%E0%A6%AC%E0%A6%BF%E0%A6%B8%E0%A6%BF%E0%A6%8F%E0%A6%B8-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
 
 
-            // bdresult.loadUrl(URL);
+            if (isNetworkConnected()) {
 
-            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-            intent.putExtra("URL", URL);
-            startActivity(intent);
-            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+                Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+                intent.putExtra("URL", URL);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+            } else {
+                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            }
         } else if (id == R.id.buet) {
             String URL = "http://www.buet.ac.bd/Home/Admission";
-            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-            intent.putExtra("URL", URL);
-            startActivity(intent);
-            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            if (isNetworkConnected()) {
+
+                Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+                intent.putExtra("URL", URL);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+            } else {
+                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            }
         } else if (id == R.id.medical) {
             String URL = "http://result.dghs.gov.bd/";
-            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-            intent.putExtra("URL", URL);
-            startActivity(intent);
-            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            if (isNetworkConnected()) {
+
+                Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+                intent.putExtra("URL", URL);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+            } else {
+                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            }
         } else if (id == R.id.du) {
             String URL = "http://admission.eis.du.ac.bd/";
-            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-            intent.putExtra("URL", URL);
-            startActivity(intent);
-            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        }else if (id == R.id.nuAdmission) {
+            if (isNetworkConnected()) {
+
+                Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+                intent.putExtra("URL", URL);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+            } else {
+                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            }
+        } else if (id == R.id.nuAdmission) {
             String URL = "http://app1.nu.edu.bd/";
-            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-            intent.putExtra("URL", URL);
-            startActivity(intent);
-            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        }else if (id == R.id.all_uv_admission) {
+            if (isNetworkConnected()) {
+
+                Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+                intent.putExtra("URL", URL);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+            } else {
+                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            }
+        } else if (id == R.id.all_uv_admission) {
             String URL = "http://www.bangladesh.gov.bd/site/view/eservices/%E0%A6%AD%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%BF%E0%A6%B0%20%E0%A6%86%E0%A6%AC%E0%A7%87%E0%A6%A6%E0%A6%A8";
-            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-            intent.putExtra("URL", URL);
-            startActivity(intent);
-            overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            if (isNetworkConnected()) {
+
+                Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+                intent.putExtra("URL", URL);
+                startActivity(intent);
+                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+
+            } else {
+                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            }
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -345,11 +385,17 @@ public class MainActivity extends AppCompatActivity
 
         String webURL = "http://180.211.137.51:5839/";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
 
 
     }
@@ -360,38 +406,59 @@ public class MainActivity extends AppCompatActivity
 
         String webURL = "http://dperesult.teletalk.com.bd/dpe.php";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+        if (isNetworkConnected()) {
 
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
 
     }
 
 
     public void seconderyResult1(View view) {
 
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+        //Handle the camera action
+
+
         String webURL = "http://eboardresults.com/app/";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
     }
 
     public void seconderyResult2(View view) {
 
         String webURL = "http://www.educationboardresults.gov.bd/";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
-    }
+        if (isNetworkConnected()) {
 
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+    }
 
 
     public void nuResult(View view) {
@@ -399,11 +466,16 @@ public class MainActivity extends AppCompatActivity
 
         String webURL = "http://www.nu.edu.bd/results/";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
 
     }
 
@@ -413,11 +485,16 @@ public class MainActivity extends AppCompatActivity
 
         String webURL = "http://app8.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Honours";
 
-        Intent intent = new Intent(this, BdResultActivity.class);
-        intent.putExtra("URL", webURL);
-        startActivity(intent);
-        // overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
 
     }
 
