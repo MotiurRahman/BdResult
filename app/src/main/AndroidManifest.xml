@@ -29,6 +29,7 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".govtResult" />
+        <activity android:name=".nu_admission"></activity>
     </application>
 
 </manifest>

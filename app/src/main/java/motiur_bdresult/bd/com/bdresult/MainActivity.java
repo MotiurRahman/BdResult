@@ -4,8 +4,10 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -25,6 +27,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 import android.app.AlertDialog;
@@ -55,6 +59,15 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+            if (Build.VERSION.SDK_INT >= 21) {
+                Window window = getWindow();
+                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+                window.setStatusBarColor(Color.parseColor("#00796B"));
+            }
+
 
 
 //        primaryResult1 = (Button) findViewById(R.id.primaryResult1);
@@ -173,6 +186,7 @@ public class MainActivity extends AppCompatActivity
         // Fetch and store ShareActionProvider
         ShareActionProvider mShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(item);
 
+
         if (mShareActionProvider != null) {
             Intent shareIntent = new Intent();
             shareIntent.setAction(Intent.ACTION_SEND);
@@ -206,7 +220,30 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        if (id == R.id.action_apps) {
+        if (id == R.id.action_update) {
+
+            if (isNetworkConnected()) {
+                Intent i = new Intent(Intent.ACTION_VIEW);
+
+                i.setData(Uri.parse("market://details?id=motiur_bdresult.bd.com.bdresult"));
+                startActivity(i);
+                //  overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            } else {
+                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+            }
+
+
+        }
+
+        if (id == R.id.action_close) {
+
+           finish();
+           System.exit(0);
+
+        }
+
+
+        if (id == R.id.action_more) {
 
             if (isNetworkConnected()) {
                 Intent devAccount = new Intent(Intent.ACTION_VIEW);
@@ -231,12 +268,12 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.sms_result) {
-//            if (mInterstitialAd.isLoaded()) {
-//                mInterstitialAd.show();
-//            } else {
-//                Log.d("TAG", "The interstitial wasn't loaded yet.");
-//            }
-            // Handle the camera action
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
+             //Handle the camera action
 
             String webURL = "file:///android_asset/smsSystem.html";
 
@@ -248,11 +285,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         } else if (id == R.id.review_result) {
-//            if (mInterstitialAd.isLoaded()) {
-//                mInterstitialAd.show();
-//            } else {
-//                Log.d("TAG", "The interstitial wasn't loaded yet.");
-//            }
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
             // Handle the camera action
 
             String webURL = "file:///android_asset/reviewResult.html";
@@ -265,11 +302,11 @@ public class MainActivity extends AppCompatActivity
             startActivity(intent);
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
         } else if (id == R.id.noncaderExamSystem) {
-//            if (mInterstitialAd.isLoaded()) {
-//                mInterstitialAd.show();
-//            } else {
-//                Log.d("TAG", "The interstitial wasn't loaded yet.");
-//            }
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
             // Handle the camera action
 
             String URL = "http://www.bpsc.gov.bd/site/page/71290977-b0b2-414c-a3e4-e3c65677b9a6/%E0%A6%A8%E0%A6%A8-%E0%A6%95%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%A1%E0%A6%BE%E0%A6%B0-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
@@ -288,11 +325,11 @@ public class MainActivity extends AppCompatActivity
 
 
         } else if (id == R.id.bcsExamSystem) {
-//            if (mInterstitialAd.isLoaded()) {
-//                mInterstitialAd.show();
-//            } else {
-//                Log.d("TAG", "The interstitial wasn't loaded yet.");
-//            }
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
             // Handle the camera action
 
             String URL = "http://www.bpsc.gov.bd/site/page/4bc95017-18d6-412b-8c4f-76d3e1599d8e/%E0%A6%AC%E0%A6%BF%E0%A6%B8%E0%A6%BF%E0%A6%8F%E0%A6%B8-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
@@ -309,6 +346,12 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
             }
         } else if (id == R.id.buet) {
+
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
             String URL = "http://www.buet.ac.bd/Home/Admission";
             if (isNetworkConnected()) {
 
@@ -321,6 +364,12 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
             }
         } else if (id == R.id.medical) {
+
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
             String URL = "http://result.dghs.gov.bd/";
             if (isNetworkConnected()) {
 
@@ -333,6 +382,12 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
             }
         } else if (id == R.id.du) {
+
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
             String URL = "http://admission.eis.du.ac.bd/";
             if (isNetworkConnected()) {
 
@@ -345,6 +400,11 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
             }
         } else if (id == R.id.nuAdmission) {
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
             String URL = "http://app1.nu.edu.bd/";
             if (isNetworkConnected()) {
 
@@ -357,6 +417,12 @@ public class MainActivity extends AppCompatActivity
                 Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
             }
         } else if (id == R.id.all_uv_admission) {
+
+            if (mInterstitialAd.isLoaded()) {
+                mInterstitialAd.show();
+            } else {
+                Log.d("TAG", "The interstitial wasn't loaded yet.");
+            }
             String URL = "http://www.bangladesh.gov.bd/site/view/eservices/%E0%A6%AD%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%BF%E0%A6%B0%20%E0%A6%86%E0%A6%AC%E0%A7%87%E0%A6%A6%E0%A6%A8";
             if (isNetworkConnected()) {
 
@@ -382,6 +448,12 @@ public class MainActivity extends AppCompatActivity
 
     public void primaryResult1(View view) {
 
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
 
         String webURL = "http://180.211.137.51:5839/";
 
@@ -403,6 +475,12 @@ public class MainActivity extends AppCompatActivity
 
     public void primaryResult2(View view) {
 
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
 
         String webURL = "http://dperesult.teletalk.com.bd/dpe.php";
 
@@ -421,6 +499,8 @@ public class MainActivity extends AppCompatActivity
 
 
     public void seconderyResult1(View view) {
+
+
 
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
@@ -446,6 +526,12 @@ public class MainActivity extends AppCompatActivity
 
     public void seconderyResult2(View view) {
 
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
         String webURL = "http://www.educationboardresults.gov.bd/";
 
         if (isNetworkConnected()) {
@@ -462,6 +548,12 @@ public class MainActivity extends AppCompatActivity
 
 
     public void nuResult(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
 
 
         String webURL = "http://www.nu.edu.bd/results/";
@@ -480,10 +572,27 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void nuAdmissionResult(View view) {
+    public void nu_all_AdmissionResult(View view) {
 
 
-        String webURL = "http://app8.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Honours";
+            Intent intent = new Intent(this , nu_admission.class);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+
+    }
+
+
+    public void bteb_result(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        String webURL = "http://180.211.164.131/result_arch/index.php";
 
         if (isNetworkConnected()) {
 
@@ -497,6 +606,159 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
+
+
+    public void bou_final(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        String webURL = "http://www.bou.ac.bd/result.php";
+
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+
+    public void bou_details(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        String webURL = "http://exam.bou.edu.bd/";
+
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+
+    public void polytechnic_admission(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        String webURL = "http://123.49.52.26:1090/first_shift/SeatPlans/merit_list";
+
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+
+    public void polytechnic_admission2(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        String webURL = "http://123.49.52.26:1090/second_shift/SeatPlans/merit_list";
+
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+
+    public void ntrca(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        String webURL = "http://ntrca.teletalk.com.bd/result/";
+
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+
+    public void bcps(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        String webURL = "http://bcpsbd.org/result/";
+
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+
+
 
 
     public void publicResult(View view) {

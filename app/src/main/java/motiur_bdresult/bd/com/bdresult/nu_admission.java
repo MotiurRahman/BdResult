@@ -15,8 +15,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.ads.AdListener;
@@ -25,18 +23,15 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.MobileAds;
 
-public class govtResult extends AppCompatActivity {
-
-    //Button bcsResult, nonCaderResult, devisionResult, seniorScale;
-
-   // TextView textView;
+public class nu_admission extends AppCompatActivity {
 
     private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_govt_result);
+        setContentView(R.layout.activity_nu_admission);
+
 
         //Bar color
         ActionBar webActivity = getSupportActionBar();
@@ -54,14 +49,6 @@ public class govtResult extends AppCompatActivity {
             window.setStatusBarColor(Color.parseColor("#00796B"));
         }
 
-
-        //
-
-//        bcsResult = (Button)findViewById(R.id.bcsResult);
-//        nonCaderResult = (Button)findViewById(R.id.nonCaderResult);
-//        devisionResult = (Button)findViewById(R.id.devisionResult);
-//        seniorScale = (Button)findViewById(R.id.seniorScale);
-       // textView = (TextView) findViewById(R.id.textView);
 
         // Load an ad into the AdMob banner view.
         AdView adView = findViewById(R.id.adView);
@@ -90,6 +77,7 @@ public class govtResult extends AppCompatActivity {
 
     }
 
+
     //For internet connection
 
     private boolean isNetworkConnected() {
@@ -101,7 +89,7 @@ public class govtResult extends AppCompatActivity {
 
 
 
-    public void bcs_Result(View view){
+    public void nu_honours_AdmissionResult(View view){
 
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
@@ -111,54 +99,8 @@ public class govtResult extends AppCompatActivity {
 
 
 
-        String webURL = "http://www.bpsc.gov.bd/site/view/psc_exam/BCS%20Examination/%E0%A6%AC%E0%A6%BF%E0%A6%B8%E0%A6%BF%E0%A6%8F%E0%A6%B8-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
 
-        if(isNetworkConnected()){
-
-            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-            intent.putExtra("URL", webURL);
-            startActivity(intent);
-            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
-
-        }else {
-            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
-        }
-
-    }
-    public void nonCaderResult(View view){
-
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        } else {
-            Log.d("TAG", "The interstitial wasn't loaded yet.");
-        }
-
-
-
-        String webURL = "http://www.bpsc.gov.bd/site/view/psc_exam/Non-Cadre%20Examination/%E0%A6%A8%E0%A6%A8-%E0%A6%95%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%A1%E0%A6%BE%E0%A6%B0-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
-
-        if(isNetworkConnected()){
-
-            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-            intent.putExtra("URL", webURL);
-            startActivity(intent);
-            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
-
-        }else {
-            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
-        }
-
-    }
-    public void devisionResult(View view){
-
-        if (mInterstitialAd.isLoaded()) {
-            mInterstitialAd.show();
-        } else {
-            Log.d("TAG", "The interstitial wasn't loaded yet.");
-        }
-
-
-        String webURL = "http://www.bpsc.gov.bd/site/view/psc_exam/Departmental%20Examination/%E0%A6%AC%E0%A6%BF%E0%A6%AD%E0%A6%BE%E0%A6%97%E0%A7%80%E0%A7%9F-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
+        String webURL = "http://app8.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Honours";
 
         if(isNetworkConnected()){
 
@@ -173,7 +115,7 @@ public class govtResult extends AppCompatActivity {
 
     }
 
-    public void seniorScale(View view){
+    public void degree_admission(View view){
 
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
@@ -182,7 +124,8 @@ public class govtResult extends AppCompatActivity {
         }
 
 
-        String webURL = "http://www.bpsc.gov.bd/site/view/psc_exam/Senior%20Scale%20Examination/%E0%A6%B8%E0%A6%BF%E0%A6%A8%E0%A6%BF%E0%A7%9F%E0%A6%B0-%E0%A6%B8%E0%A7%8D%E0%A6%95%E0%A7%87%E0%A6%B2-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
+
+        String webURL = "http://app8.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Degree%20Pass";
 
         if(isNetworkConnected()){
 
@@ -197,6 +140,80 @@ public class govtResult extends AppCompatActivity {
 
     }
 
+    public void masters_preliminary(View view){
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+
+        String webURL = "http://app8.nu.edu.bd/nu-web/msapplicant/applicantLogin.action?degreeName=Preliminary";
+
+        if(isNetworkConnected()){
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        }else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    public void masters_professional(View view){
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+
+        String webURL = "http://app8.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Professional";
+
+        if(isNetworkConnected()){
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        }else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    public void masters_Regular(View view){
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+
+        String webURL = "http://app8.nu.edu.bd/nu-web/msapplicant/applicantLogin.action?degreeName=Postgraduate";
+
+        if(isNetworkConnected()){
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        }else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -205,6 +222,7 @@ public class govtResult extends AppCompatActivity {
 
         return true;
     }
+
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -224,6 +242,7 @@ public class govtResult extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
 
 
 }

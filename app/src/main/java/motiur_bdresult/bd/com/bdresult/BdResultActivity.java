@@ -3,13 +3,15 @@ package motiur_bdresult.bd.com.bdresult;
 import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -18,6 +20,7 @@ import android.widget.ProgressBar;
 
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 public class BdResultActivity extends AppCompatActivity {
 
@@ -30,7 +33,6 @@ public class BdResultActivity extends AppCompatActivity {
         setContentView(R.layout.activity_bd_result);
 
 
-
         //Bar color
         ActionBar webActivity = getSupportActionBar();
         webActivity.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#009688")));
@@ -41,29 +43,50 @@ public class BdResultActivity extends AppCompatActivity {
 
         //
 
-
         //WebView
-        bdresult = (WebView)findViewById(R.id.web1);
-        WebSettings webSettings = bdresult.getSettings();
-        webSettings.setJavaScriptEnabled(true);
+        bdresult = (WebView) findViewById(R.id.web1);
+        bdresult.setInitialScale(1);
+        bdresult.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
+        bdresult.setHorizontalScrollBarEnabled(false);
+
+
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor("#00796B"));
+        }
+
+
 
         //Improve wevView performance
 
-        bdresult.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-        bdresult.getSettings().setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        bdresult.getSettings().setAppCacheEnabled(true);
-        bdresult.setScrollBarStyle(View.SCROLLBARS_INSIDE_OVERLAY);
-        bdresult.setInitialScale(1);
-        bdresult.getSettings().setDisplayZoomControls(false);
-        bdresult.getSettings().setBuiltInZoomControls(true);
-        // chakrirkhobor.setVerticalScrollBarEnabled(false);
-        bdresult.setHorizontalScrollBarEnabled(false);
-        webSettings.setDomStorageEnabled(true);
-        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
+
+        WebSettings webSettings = bdresult.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+
+        webSettings.setRenderPriority(WebSettings.RenderPriority.HIGH);
+        webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
+        webSettings.setAppCacheEnabled(true);
+
+        //Test
+        webSettings.setLoadWithOverviewMode(true);
         webSettings.setUseWideViewPort(true);
+        //
+
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setDefaultZoom(WebSettings.ZoomDensity.FAR);
+        webSettings.setBuiltInZoomControls(true);
+
+
+        webSettings.setDomStorageEnabled(true);
+        webSettings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NORMAL);
 
         webSettings.setSavePassword(true);
         webSettings.setSaveFormData(true);
+
+
         webSettings.setEnableSmoothTransition(true);
 
 
@@ -74,8 +97,7 @@ public class BdResultActivity extends AppCompatActivity {
 
         bdresult.setWebViewClient(new mywebClient());
 
-        proBar = (ProgressBar)findViewById(R.id.progressBar1);
-
+        proBar = (ProgressBar) findViewById(R.id.progressBar1);
 
 
         // Load an ad into the AdMob banner view.
@@ -83,7 +105,7 @@ public class BdResultActivity extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
-        // MobileAds.initialize(this, "ca-app-pub-1090282204928094~4758004250");
+        MobileAds.initialize(this, "ca-app-pub-4951262838901192~5542320854");
 
     }
 
@@ -114,24 +136,17 @@ public class BdResultActivity extends AppCompatActivity {
         }
     }
 
-    //End webview progress bar
 
     //WebView back button
 
     @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if (event.getAction() == KeyEvent.ACTION_DOWN) {
-            switch (keyCode) {
-                case KeyEvent.KEYCODE_BACK:
-                    if (bdresult.canGoBack()) {
-                        bdresult.goBack();
-                    }
-                    return true;
-            }
-
+    public void onBackPressed() {
+        if (bdresult.canGoBack()) {
+            bdresult.goBack();
+        } else {
+            super.onBackPressed();
         }
-        return super.onKeyDown(keyCode, event);
+
     }
 
     //end WebView back button
@@ -157,7 +172,7 @@ public class BdResultActivity extends AppCompatActivity {
             finish();
 
             overridePendingTransition(R.anim.enter_from_left, R.anim.exit_out_right);
-          //  overridePendingTransition(R.anim.fadein, R.anim.fadeout);
+            //  overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
         }
 

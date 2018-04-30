@@ -5,8 +5,10 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
-    <string name="action_apps">More Apps</string>
-    <string name="action_ratings">Give 5 Star Please</string>
+    <string name="action_more">More Apps</string>
+    <string name="action_ratings">Feedback Please</string>
+    <string name="action_update">Update this App</string>
+    <string name="action_close">Exit App</string>
     <string name="home">Home</string>
     <string name="share">Share App</string>
 
@@ -21,16 +23,33 @@
 
 
     <!--<string name="">Govt job result page</string>-->
-    <string name="textTitle">বাংলাদেশ পরীক্ষাসমূহের নোটিশ ও ফলাফল</string>
     <string name="smsResult">প্রাইমারী রেজাল্ট মার্কসীট সহ</string>
     <string name="primaryResult1">প্রাইমারী রেজাল্ট মার্কসীট সহ</string>
-    <string name="primaryResult2">প্রাইমারী রেজাল্ট (২)</string>
+    <string name="primaryResult2">প্রাইমারী রেজাল্ট (সার্ভার ২)</string>
     <string name="seconderyResult1">মাধ্যমিক ও  উচ্চমাধ্যমিক রেজাল্ট মার্কসীট সহ</string>
-    <string name="seconderyResult2">মাধ্যমিক ও  উচ্চমাধ্যমিক রেজাল্ট (২)</string>
-    <string name="nuResult">ডিগ্ৰী ও অনার্স রেজাল্ট</string>
+    <string name="seconderyResult2">মাধ্যমিক ও  উচ্চমাধ্যমিক রেজাল্ট (সার্ভার ২)</string>
+    <string name="nuResult">ডিগ্ৰী, অনার্স, মাস্টার্স রেজাল্ট</string>
     <string name="govtResultMain">সরকারি চাকরির ফলাফল</string>
-    <string name="nuAdmissionResult">অনার্স ভর্তি পরীক্ষার ফলাফল</string>
-    <string name="admissionResult">Admission Result</string>
+
+    <string name="nu_all_AdmissionResult">জাতীয় বিশ্ববিদ্যালয়ের সকল ভর্তি পরীক্ষার ফলাফল</string>
+    <string name="nu_honours_AdmissionResult">Honours Admission Test Results</string>
+    <string name="degree_admission">Degree Admission Test Results</string>
+    <string name="masters_preliminary">Masters (Preliminary) Admission Results</string>
+    <string name="masters_pro">Masters (Professional) Admission Results</string>
+    <string name="masters_Regular">Masters (Regular) Admission Results</string>
+
+
+    <string name="bteb_result">BTEB Diploma Results</string>
+
+    <string name="bou_final">BOU Final Exam Results (All Class)</string>
+    <string name="bou_details">BOU Details, Yesr-wise and semester-wise Result</string>
+
+    <string name="polytechnic_admission">Polytechnic Admission Result (1st Shift)</string>
+    <string name="polytechnic_admission2">Polytechnic Admission Result (2nd Shift)</string>
+
+    <string name="ntrca">NTRCA Teacher Registration Results</string>
+    <string name="bcps">BCPS Final Exam Results</string>
+    <string name="admissionResult">All University Admission Result</string>
 
 
     <string name="ok">OK</string>
@@ -51,13 +70,13 @@
 
 
     <!--<string name="action_ratings">Admob key</string>-->
-    <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--<string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>-->
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
 
 
     <!--<string name="action_ratings">Admob key</string>-->
-    <string name="banner_ad_unit_id">ca-app-pub-4951262838901192/7402197436</string>
-    <string name="interstitial_ad_unit_id">ca-app-pub-4951262838901192/4009747335</string>
+    <!--<string name="banner_ad_unit_id">ca-app-pub-4951262838901192/7402197436</string>-->
+    <!--<string name="interstitial_ad_unit_id">ca-app-pub-4951262838901192/4009747335</string>-->
 </resources>
 
 

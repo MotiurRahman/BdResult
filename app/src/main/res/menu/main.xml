@@ -18,9 +18,20 @@
         app:showAsAction="never"/>
 
     <item
-        android:id="@+id/action_apps"
+        android:id="@+id/action_update"
         android:orderInCategory="300"
+        android:title="@string/action_update"
+        app:showAsAction="never"/>
 
-        android:title="@string/action_apps"
+    <item
+        android:id="@+id/action_more"
+        android:orderInCategory="400"
+        android:title="@string/action_more"
+        app:showAsAction="never"/>
+
+    <item
+        android:id="@+id/action_close"
+        android:orderInCategory="500"
+        android:title="@string/action_close"
         app:showAsAction="never"/>
 </menu>

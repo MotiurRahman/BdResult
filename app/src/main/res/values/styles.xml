@@ -19,9 +19,10 @@
 
     <style name="buttonTheam" parent="Theme.AppCompat">
         <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Colored</item>
-
         <item name="colorButtonNormal">@color/colorPrimary</item>
         <item name="colorControlHighlight">@color/colorAccent</item>
     </style>
+
+
 
 </resources>

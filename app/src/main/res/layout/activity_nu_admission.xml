@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@mipmap/backimg"
-    tools:context="motiur_bdresult.bd.com.bdresult.govtResult">
+    tools:context="motiur_bdresult.bd.com.bdresult.nu_admission">
 
     <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
@@ -32,7 +32,7 @@
                 android:shadowDx="0"
                 android:shadowDy="0"
                 android:shadowRadius="5"
-                android:text="@string/govtResult"
+                android:text="@string/nu_all_AdmissionResult"
                 android:textColor="#ffffff"
                 android:textSize="20sp" />
 
@@ -44,14 +44,14 @@
                 android:paddingRight="40sp">
 
                 <Button
-                    android:id="@+id/bcsResult"
+                    android:id="@+id/nu_honours_AdmissionResult"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="20sp"
                     android:background="@drawable/buttonshape"
                     android:fontFamily="serif"
-                    android:onClick="bcs_Result"
+                    android:onClick="nu_honours_AdmissionResult"
                     android:padding="5sp"
 
                     android:shadowColor="#A8A8A8"
@@ -59,12 +59,33 @@
                     android:shadowDy="0"
                     android:shadowRadius="5"
 
-                    android:text="@string/bcsResult"
+                    android:text="@string/nu_honours_AdmissionResult"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp" />
 
                 <Button
-                    android:id="@+id/nonCaderResult"
+                    android:id="@+id/degree_admission"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20sp"
+                    android:background="@drawable/buttonshape"
+                    android:fontFamily="serif"
+                    android:onClick="degree_admission"
+                    android:padding="5sp"
+
+                    android:shadowColor="#A8A8A8"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+
+                    android:text="@string/degree_admission"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+
+                <Button
+                    android:id="@+id/masters_Regular"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -72,19 +93,39 @@
                     android:layout_marginTop="20sp"
                     android:background="@drawable/buttonshape"
                     android:fontFamily="serif"
-                    android:onClick="nonCaderResult"
+                    android:onClick="masters_Regular"
+                    android:padding="5sp"
+                    android:shadowColor="#A8A8A8"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+                    android:text="@string/masters_Regular"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/masters_preliminary"
+
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="20sp"
+                    android:background="@drawable/buttonshape"
+                    android:fontFamily="serif"
+                    android:onClick="masters_preliminary"
                     android:padding="5sp"
                     android:shadowColor="#A8A8A8"
                     android:shadowDx="0"
                     android:shadowDy="0"
                     android:shadowRadius="5"
 
-                    android:text="@string/nonCaderResult"
+                    android:text="@string/masters_preliminary"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp" />
 
                 <Button
-                    android:id="@+id/devisionResult"
+                    android:id="@+id/masters_pro"
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -92,35 +133,18 @@
                     android:layout_marginTop="20sp"
                     android:background="@drawable/buttonshape"
                     android:fontFamily="serif"
-                    android:onClick="devisionResult"
+                    android:onClick="masters_professional"
                     android:padding="5sp"
                     android:shadowColor="#A8A8A8"
                     android:shadowDx="0"
                     android:shadowDy="0"
                     android:shadowRadius="5"
 
-                    android:text="@string/devisionResult"
+                    android:text="@string/masters_pro"
                     android:textColor="#FFFFFF"
                     android:textSize="20sp" />
 
-                <Button
-                    android:id="@+id/seniorScale"
 
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="20sp"
-                    android:background="@drawable/buttonshape"
-                    android:fontFamily="serif"
-                    android:onClick="seniorScale"
-                    android:padding="5sp"
-                    android:shadowColor="#A8A8A8"
-                    android:shadowDx="0"
-                    android:shadowDy="0"
-                    android:shadowRadius="5"
-                    android:text="@string/seniorResult"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
 
 
             </LinearLayout>
