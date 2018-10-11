@@ -48,6 +48,7 @@
     <string name="polytechnic_admission2">Polytechnic Admission Result (2nd Shift)</string>
 
     <string name="ntrca">NTRCA Teacher Registration Results</string>
+    <string name="ntrca2">NTRCA Teacher Registration For ALL</string>
     <string name="bcps">BCPS Final Exam Results</string>
     <string name="admissionResult">All University Admission Result</string>
 
@@ -68,15 +69,17 @@
     <string name="nuAdmission">National University Admission</string>
     <string name="all_uv_admission">All University Admission</string>
 
-
-    <!--<string name="action_ratings">Admob key</string>-->
-    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
-    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
-
-
-    <!--<string name="action_ratings">Admob key</string>-->
     <!--<string name="banner_ad_unit_id">ca-app-pub-4951262838901192/7402197436</string>-->
     <!--<string name="interstitial_ad_unit_id">ca-app-pub-4951262838901192/4009747335</string>-->
+
+
+    <!--<string name="action_ratings">Admob key</string>-->
+    <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
+    <!--<string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>-->
+
+
+
+
 </resources>
 
 

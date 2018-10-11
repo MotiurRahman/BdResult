@@ -52,6 +52,44 @@
 
 
                 <Button
+                    android:id="@+id/seconderyResult1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25sp"
+                    android:background="@drawable/buttonshape"
+                    android:fontFamily="serif"
+
+                    android:onClick="seconderyResult1"
+                    android:padding="5sp"
+                    android:shadowColor="#A8A8A8"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+                    android:text="@string/seconderyResult1"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+                <Button
+                    android:id="@+id/seconderyResult2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25sp"
+                    android:background="@drawable/buttonshape"
+                    android:fontFamily="serif"
+                    android:onClick="seconderyResult2"
+                    android:padding="5sp"
+                    android:shadowColor="#A8A8A8"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+                    android:text="@string/seconderyResult2"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+
+                <Button
                     android:id="@+id/primaryResult1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -91,42 +129,7 @@
                     android:textSize="20sp" />
 
 
-                <Button
-                    android:id="@+id/seconderyResult1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="25sp"
-                    android:background="@drawable/buttonshape"
-                    android:fontFamily="serif"
 
-                    android:onClick="seconderyResult1"
-                    android:padding="5sp"
-                    android:shadowColor="#A8A8A8"
-                    android:shadowDx="0"
-                    android:shadowDy="0"
-                    android:shadowRadius="5"
-                    android:text="@string/seconderyResult1"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
-
-                <Button
-                    android:id="@+id/seconderyResult2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:layout_marginTop="25sp"
-                    android:background="@drawable/buttonshape"
-                    android:fontFamily="serif"
-                    android:onClick="seconderyResult2"
-                    android:padding="5sp"
-                    android:shadowColor="#A8A8A8"
-                    android:shadowDx="0"
-                    android:shadowDy="0"
-                    android:shadowRadius="5"
-                    android:text="@string/seconderyResult2"
-                    android:textColor="#FFFFFF"
-                    android:textSize="20sp" />
 
                 <Button
                     android:id="@+id/nuReslt"
@@ -298,6 +301,25 @@
 
 
                 <Button
+                    android:id="@+id/ntrca2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="25sp"
+                    android:background="@drawable/buttonshape"
+                    android:fontFamily="serif"
+                    android:onClick="ntrca2"
+                    android:padding="5sp"
+                    android:shadowColor="#A8A8A8"
+                    android:shadowDx="0"
+                    android:shadowDy="0"
+                    android:shadowRadius="5"
+                    android:text="@string/ntrca2"
+                    android:textColor="#FFFFFF"
+                    android:textSize="20sp" />
+
+
+                <Button
                     android:id="@+id/bcps"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -348,7 +370,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="@string/banner_ad_unit_id" />
+        ads:adUnitId="ca-app-pub-4951262838901192/7402197436" />
 
 
 </RelativeLayout>

@@ -59,15 +59,16 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        MobileAds.initialize(this, "ca-app-pub-4951262838901192~5542320854");
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
-            if (Build.VERSION.SDK_INT >= 21) {
-                Window window = getWindow();
-                window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-                window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-                window.setStatusBarColor(Color.parseColor("#00796B"));
-            }
-
+        if (Build.VERSION.SDK_INT >= 21) {
+            Window window = getWindow();
+            window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+            window.setStatusBarColor(Color.parseColor("#00796B"));
+        }
 
 
 //        primaryResult1 = (Button) findViewById(R.id.primaryResult1);
@@ -118,7 +119,7 @@ public class MainActivity extends AppCompatActivity
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
-        MobileAds.initialize(this, "ca-app-pub-4951262838901192~5542320854");
+
 
 
         //Toolbar
@@ -138,7 +139,7 @@ public class MainActivity extends AppCompatActivity
 
         // Interestitial Ad
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
+        mInterstitialAd.setAdUnitId("ca-app-pub-4951262838901192/3221127813");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mInterstitialAd.setAdListener(new AdListener() {
@@ -237,8 +238,8 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.action_close) {
 
-           finish();
-           System.exit(0);
+            finish();
+            System.exit(0);
 
         }
 
@@ -273,7 +274,7 @@ public class MainActivity extends AppCompatActivity
             } else {
                 Log.d("TAG", "The interstitial wasn't loaded yet.");
             }
-             //Handle the camera action
+            //Handle the camera action
 
             String webURL = "file:///android_asset/smsSystem.html";
 
@@ -501,7 +502,6 @@ public class MainActivity extends AppCompatActivity
     public void seconderyResult1(View view) {
 
 
-
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
         } else {
@@ -510,7 +510,7 @@ public class MainActivity extends AppCompatActivity
         //Handle the camera action
 
 
-        String webURL = "http://eboardresults.com/app/";
+        String webURL = "https://eboardresults.com/app/";
 
         if (isNetworkConnected()) {
 
@@ -556,7 +556,7 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        String webURL = "http://www.nu.edu.bd/results/";
+        String webURL = "http://www.nu.ac.bd/results/";
 
         if (isNetworkConnected()) {
 
@@ -575,9 +575,9 @@ public class MainActivity extends AppCompatActivity
     public void nu_all_AdmissionResult(View view) {
 
 
-            Intent intent = new Intent(this , nu_admission.class);
-            startActivity(intent);
-            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+        Intent intent = new Intent(this, nu_admission.class);
+        startActivity(intent);
+        overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
 
 
     }
@@ -592,7 +592,7 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        String webURL = "http://180.211.164.131/result_arch/index.php";
+        String webURL = "http://180.211.164.133/result_arch/index.php";
 
         if (isNetworkConnected()) {
 
@@ -732,6 +732,31 @@ public class MainActivity extends AppCompatActivity
 
     }
 
+    public void ntrca2(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        String webURL = "http://ngi.teletalk.com.bd/ntrca/app/";
+
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+
 
     public void bcps(View view) {
 
@@ -756,9 +781,6 @@ public class MainActivity extends AppCompatActivity
         }
 
     }
-
-
-
 
 
     public void publicResult(View view) {

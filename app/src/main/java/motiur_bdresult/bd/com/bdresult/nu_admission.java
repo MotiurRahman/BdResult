@@ -31,6 +31,8 @@ public class nu_admission extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nu_admission);
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
+        MobileAds.initialize(this, "ca-app-pub-4951262838901192~5542320854");
 
 
         //Bar color
@@ -55,11 +57,11 @@ public class nu_admission extends AppCompatActivity {
         AdRequest adRequest = new AdRequest.Builder()
                 .setRequestAgent("android_studio:ad_template").build();
         adView.loadAd(adRequest);
-        MobileAds.initialize(this, "ca-app-pub-4951262838901192~5542320854");
+
 
         // Interestitial Ad
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
+        mInterstitialAd.setAdUnitId("ca-app-pub-4951262838901192/3221127813");
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mInterstitialAd.setAdListener(new AdListener() {
