@@ -21,16 +21,16 @@
 
 
 
-    <item android:title="Exam System">
+    <item android:title="Exam Routine">
         <menu>
         <item
-            android:id="@+id/bcsExamSystem"
+            android:id="@+id/examRoutineSSC"
             android:icon="@mipmap/ic_note_black_24dp"
-            android:title="@string/bcsExamSystem" />
+            android:title="@string/examRoutineSSC" />
         <item
-            android:id="@+id/noncaderExamSystem"
+            android:id="@+id/examRoutineHSC"
             android:icon="@mipmap/ic_note_black_24dp"
-            android:title="@string/noncaderExamSystem" />
+            android:title="@string/examRoutineHSC" />
 
         </menu>
 
@@ -64,10 +64,6 @@
                 android:id="@+id/nuAdmission"
                 android:icon="@mipmap/ic_school_black_24dp"
                 android:title="@string/nuAdmission" />
-            <item
-                android:id="@+id/all_uv_admission"
-                android:icon="@mipmap/ic_school_black_24dp"
-                android:title="@string/all_uv_admission" />
 
 
 

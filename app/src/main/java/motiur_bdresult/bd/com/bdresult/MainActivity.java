@@ -139,7 +139,7 @@ public class MainActivity extends AppCompatActivity
 
         // Interestitial Ad
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-4951262838901192/3221127813");
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mInterstitialAd.setAdListener(new AdListener() {
@@ -302,7 +302,7 @@ public class MainActivity extends AppCompatActivity
             intent.putExtra("URL", webURL);
             startActivity(intent);
             overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-        } else if (id == R.id.noncaderExamSystem) {
+        } else if (id == R.id.examRoutineSSC) {
             if (mInterstitialAd.isLoaded()) {
                 mInterstitialAd.show();
             } else {
@@ -310,7 +310,7 @@ public class MainActivity extends AppCompatActivity
             }
             // Handle the camera action
 
-            String URL = "http://www.bpsc.gov.bd/site/page/71290977-b0b2-414c-a3e4-e3c65677b9a6/%E0%A6%A8%E0%A6%A8-%E0%A6%95%E0%A7%8D%E0%A6%AF%E0%A6%BE%E0%A6%A1%E0%A6%BE%E0%A6%B0-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
+            String URL = "https://drive.google.com/file/d/1FNsVSHhH7P2tRyG7Buoss-fF9rwxEudz/view";
 
 
             if (isNetworkConnected()) {
@@ -325,7 +325,7 @@ public class MainActivity extends AppCompatActivity
             }
 
 
-        } else if (id == R.id.bcsExamSystem) {
+        } else if (id == R.id.examRoutineHSC) {
             if (mInterstitialAd.isLoaded()) {
                 mInterstitialAd.show();
             } else {
@@ -333,13 +333,13 @@ public class MainActivity extends AppCompatActivity
             }
             // Handle the camera action
 
-            String URL = "http://www.bpsc.gov.bd/site/page/4bc95017-18d6-412b-8c4f-76d3e1599d8e/%E0%A6%AC%E0%A6%BF%E0%A6%B8%E0%A6%BF%E0%A6%8F%E0%A6%B8-%E0%A6%AA%E0%A6%B0%E0%A7%80%E0%A6%95%E0%A7%8D%E0%A6%B7%E0%A6%BE";
+            String URL = "https://dhakaeducationboard.gov.bd/data/20181122102109185706.pdf";
 
 
             if (isNetworkConnected()) {
 
-                Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-                intent.putExtra("URL", URL);
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.parse(URL));
                 startActivity(intent);
                 overridePendingTransition(R.anim.fadein, R.anim.fadeout);
 
@@ -417,24 +417,6 @@ public class MainActivity extends AppCompatActivity
             } else {
                 Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
             }
-        } else if (id == R.id.all_uv_admission) {
-
-            if (mInterstitialAd.isLoaded()) {
-                mInterstitialAd.show();
-            } else {
-                Log.d("TAG", "The interstitial wasn't loaded yet.");
-            }
-            String URL = "http://www.bangladesh.gov.bd/site/view/eservices/%E0%A6%AD%E0%A6%B0%E0%A7%8D%E0%A6%A4%E0%A6%BF%E0%A6%B0%20%E0%A6%86%E0%A6%AC%E0%A7%87%E0%A6%A6%E0%A6%A8";
-            if (isNetworkConnected()) {
-
-                Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
-                intent.putExtra("URL", URL);
-                startActivity(intent);
-                overridePendingTransition(R.anim.fadein, R.anim.fadeout);
-
-            } else {
-                Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
-            }
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
@@ -456,7 +438,7 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        String webURL = "http://180.211.137.51:5839/";
+        String webURL = "http://202.51.191.190:5839/";
 
 
         if (isNetworkConnected()) {
@@ -484,6 +466,30 @@ public class MainActivity extends AppCompatActivity
 
 
         String webURL = "http://dperesult.teletalk.com.bd/dpe.php";
+
+        if (isNetworkConnected()) {
+
+            Intent intent = new Intent(getApplicationContext(), BdResultActivity.class);
+            intent.putExtra("URL", webURL);
+            startActivity(intent);
+            overridePendingTransition(R.anim.enter_from_right, R.anim.exit_out_left);
+
+        } else {
+            Toast.makeText(getApplicationContext(), "No internet connection", Toast.LENGTH_LONG).show();
+        }
+
+    }
+
+    public void primaryResult3(View view) {
+
+        if (mInterstitialAd.isLoaded()) {
+            mInterstitialAd.show();
+        } else {
+            Log.d("TAG", "The interstitial wasn't loaded yet.");
+        }
+
+
+        String webURL = "https://dpe.portal.gov.bd/site/page/f5584576-5e2f-465f-b4a6-c2e992184d3f";
 
         if (isNetworkConnected()) {
 
@@ -592,7 +598,7 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        String webURL = "http://180.211.164.133/result_arch/index.php";
+        String webURL = "https://sites.google.com/site/resultbteb/";
 
         if (isNetworkConnected()) {
 
@@ -667,7 +673,7 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        String webURL = "http://123.49.52.26:1090/first_shift/SeatPlans/merit_list";
+        String webURL = "http://www.btebadmission.gov.bd/";
 
         if (isNetworkConnected()) {
 
@@ -683,7 +689,7 @@ public class MainActivity extends AppCompatActivity
     }
 
 
-    public void polytechnic_admission2(View view) {
+    public void dhakaPolytechnic_result(View view) {
 
         if (mInterstitialAd.isLoaded()) {
             mInterstitialAd.show();
@@ -692,7 +698,7 @@ public class MainActivity extends AppCompatActivity
         }
 
 
-        String webURL = "http://123.49.52.26:1090/second_shift/SeatPlans/merit_list";
+        String webURL = "http://dpi.gov.bd/academics/result/";
 
         if (isNetworkConnected()) {
 

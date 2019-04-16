@@ -37,7 +37,6 @@ public class govtResult extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_govt_result);
-        MobileAds.initialize(this, "ca-app-pub-4951262838901192~5542320854");
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
         //Bar color
@@ -74,9 +73,8 @@ public class govtResult extends AppCompatActivity {
 
         // Interestitial Ad
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-4951262838901192/3221127813");
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
-
         mInterstitialAd.setAdListener(new AdListener() {
             @Override
             public void onAdClosed() {
@@ -106,6 +104,7 @@ public class govtResult extends AppCompatActivity {
     public void bcs_Result(View view){
 
         if (mInterstitialAd.isLoaded()) {
+
             mInterstitialAd.show();
         } else {
             Log.d("TAG", "The interstitial wasn't loaded yet.");

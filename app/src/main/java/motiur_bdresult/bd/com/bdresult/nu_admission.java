@@ -32,8 +32,6 @@ public class nu_admission extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_nu_admission);
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
-        MobileAds.initialize(this, "ca-app-pub-4951262838901192~5542320854");
-
 
         //Bar color
         ActionBar webActivity = getSupportActionBar();
@@ -61,7 +59,7 @@ public class nu_admission extends AppCompatActivity {
 
         // Interestitial Ad
         mInterstitialAd = new InterstitialAd(this);
-        mInterstitialAd.setAdUnitId("ca-app-pub-4951262838901192/3221127813");
+        mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ad_unit_id));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());
 
         mInterstitialAd.setAdListener(new AdListener() {
@@ -102,7 +100,8 @@ public class nu_admission extends AppCompatActivity {
 
 
 
-        String webURL = "http://app8.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Honours";
+       String webURL = "http://app3.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Honours";
+        //String webURL = "http://app1.nu.edu.bd/";
 
         if(isNetworkConnected()){
 
@@ -127,7 +126,7 @@ public class nu_admission extends AppCompatActivity {
 
 
 
-        String webURL = "http://app8.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Degree%20Pass";
+        String webURL = "http://app3.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Degree%20Pass";
 
         if(isNetworkConnected()){
 
@@ -152,7 +151,7 @@ public class nu_admission extends AppCompatActivity {
 
 
 
-        String webURL = "http://app8.nu.edu.bd/nu-web/msapplicant/applicantLogin.action?degreeName=Preliminary";
+        String webURL = "http://app3.nu.edu.bd/nu-web/msapplicant/applicantLogin.action?degreeName=Preliminary";
 
         if(isNetworkConnected()){
 
@@ -177,7 +176,7 @@ public class nu_admission extends AppCompatActivity {
 
 
 
-        String webURL = "http://app8.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Professional";
+        String webURL = "http://app3.nu.edu.bd/nu-web/applicantLogin.action?degreeName=Professional";
 
         if(isNetworkConnected()){
 
@@ -202,7 +201,7 @@ public class nu_admission extends AppCompatActivity {
 
 
 
-        String webURL = "http://app8.nu.edu.bd/nu-web/msapplicant/applicantLogin.action?degreeName=Postgraduate";
+        String webURL = "http://app3.nu.edu.bd/nu-web/msapplicant/applicantLogin.action?degreeName=Postgraduate";
 
         if(isNetworkConnected()){
 

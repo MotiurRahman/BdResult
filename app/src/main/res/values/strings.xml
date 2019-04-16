@@ -26,6 +26,7 @@
     <string name="smsResult">প্রাইমারী রেজাল্ট মার্কসীট সহ</string>
     <string name="primaryResult1">প্রাইমারী রেজাল্ট মার্কসীট সহ</string>
     <string name="primaryResult2">প্রাইমারী রেজাল্ট (সার্ভার ২)</string>
+    <string name="primaryResult3">প্রাইমারী রেজাল্ট PDF ভার্শন</string>
     <string name="seconderyResult1">মাধ্যমিক ও  উচ্চমাধ্যমিক রেজাল্ট মার্কসীট সহ</string>
     <string name="seconderyResult2">মাধ্যমিক ও  উচ্চমাধ্যমিক রেজাল্ট (সার্ভার ২)</string>
     <string name="nuResult">ডিগ্ৰী, অনার্স, মাস্টার্স রেজাল্ট</string>
@@ -44,8 +45,8 @@
     <string name="bou_final">BOU Final Exam Results (All Class)</string>
     <string name="bou_details">BOU Details, Yesr-wise and semester-wise Result</string>
 
-    <string name="polytechnic_admission">Polytechnic Admission Result (1st Shift)</string>
-    <string name="polytechnic_admission2">Polytechnic Admission Result (2nd Shift)</string>
+    <string name="polytechnic_admission">Polytechnic Admission</string>
+    <string name="dhakaPolytechnic_result"> Dhaka Polytechnic Result</string>
 
     <string name="ntrca">NTRCA Teacher Registration Results</string>
     <string name="ntrca2">NTRCA Teacher Registration For ALL</string>
@@ -70,14 +71,15 @@
     <string name="all_uv_admission">All University Admission</string>
 
     <!--<string name="banner_ad_unit_id">ca-app-pub-4951262838901192/7402197436</string>-->
-    <!--<string name="interstitial_ad_unit_id">ca-app-pub-4951262838901192/4009747335</string>-->
+    <!--<string name="interstitial_ad_unit_id">ca-app-pub-4951262838901192/3221127813</string>-->
+
+    <string name="examRoutineSSC">SSC Exam Routine</string>
+    <string name="examRoutineHSC">HSC Exam Routine</string>
 
 
     <!--<string name="action_ratings">Admob key</string>-->
-    <!--<string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>-->
-    <!--<string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>-->
-
-
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-3940256099942544/1033173712</string>
 
 
 </resources>

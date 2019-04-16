@@ -49,7 +49,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="20sp"
-                    android:background="@drawable/buttonshape"
+                    android:background="@drawable/selectorbtn"
                     android:fontFamily="serif"
                     android:onClick="nu_honours_AdmissionResult"
                     android:padding="5sp"
@@ -69,7 +69,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="20sp"
-                    android:background="@drawable/buttonshape"
+                    android:background="@drawable/selectorbtn"
                     android:fontFamily="serif"
                     android:onClick="degree_admission"
                     android:padding="5sp"
@@ -91,7 +91,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="20sp"
-                    android:background="@drawable/buttonshape"
+                    android:background="@drawable/selectorbtn"
                     android:fontFamily="serif"
                     android:onClick="masters_Regular"
                     android:padding="5sp"
@@ -111,7 +111,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="20sp"
-                    android:background="@drawable/buttonshape"
+                    android:background="@drawable/selectorbtn"
                     android:fontFamily="serif"
                     android:onClick="masters_preliminary"
                     android:padding="5sp"
@@ -131,7 +131,7 @@
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_marginTop="20sp"
-                    android:background="@drawable/buttonshape"
+                    android:background="@drawable/selectorbtn"
                     android:fontFamily="serif"
                     android:onClick="masters_professional"
                     android:padding="5sp"
@@ -160,7 +160,7 @@
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         ads:adSize="SMART_BANNER"
-        ads:adUnitId="ca-app-pub-4951262838901192/7402197436" />
+        ads:adUnitId="@string/banner_ad_unit_id" />
 
 
 </RelativeLayout>

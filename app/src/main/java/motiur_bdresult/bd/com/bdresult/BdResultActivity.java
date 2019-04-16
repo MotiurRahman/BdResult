@@ -1,5 +1,6 @@
 package motiur_bdresult.bd.com.bdresult;
 
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -15,6 +16,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.webkit.DownloadListener;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -35,7 +37,6 @@ public class BdResultActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bd_result);
-        MobileAds.initialize(this, "ca-app-pub-4951262838901192~5542320854");
         getWindow().addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
 
 
@@ -56,11 +57,12 @@ public class BdResultActivity extends AppCompatActivity {
         //Improve wevView performance
 
 
+        bdresult.clearCache(true);
         WebSettings webSettings = bdresult.getSettings();
         webSettings.setJavaScriptEnabled(true);
 
         webSettings.setCacheMode(WebSettings.LOAD_CACHE_ELSE_NETWORK);
-        webSettings.setAppCacheEnabled(true);
+        webSettings.setAppCacheEnabled(false);
 
         //Test
         webSettings.setLoadWithOverviewMode(true);
@@ -108,6 +110,28 @@ public class BdResultActivity extends AppCompatActivity {
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.setStatusBarColor(Color.parseColor("#00796B"));
         }
+
+//        bdresult.setWebViewClient(new WebViewClient() {
+//            public boolean shouldOverrideUrlLoading (WebView view, String url) {
+//                if (url.endsWith(".pdf")) {
+//                    startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+//                    // if want to download pdf manually create AsyncTask here
+//                    // and download file
+//                    return true;
+//                }
+//                return false;
+//            }
+//        });
+
+        bdresult.setDownloadListener(new DownloadListener() {
+            @Override
+            public void onDownloadStart(String url, String userAgent,
+                                        String contentDisposition, String mimetype,
+                                        long contentLength) {
+
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(url)));
+            }
+        });
 
 
     }
